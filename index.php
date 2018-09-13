@@ -51,10 +51,13 @@
 <div class="jumbotron">
   <h1 class="display-4">Aplicção!</h1>
   <?php
-    echo ">>>> Env >>>";
+  $x = 1;
+  $y = 2;
+
+    echo $x+$y;
     ?>
   <?php 
-    echo getenv('msgManutencao');
+    echo getenv('msgManutencao');              
   ?>
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
