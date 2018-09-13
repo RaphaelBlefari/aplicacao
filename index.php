@@ -52,8 +52,10 @@
   <h1 class="display-4">Aplicção!</h1>
   <?php
     echo ">>>> Env >>>";
-    echo getenv('msgManutencao');
     ?>
+  <?php 
+    echo getenv('msgManutencao');
+  ?>
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
