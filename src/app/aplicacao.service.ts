@@ -5,7 +5,7 @@ import { MensagemAPI } from './MensagemAPI.model';
 
 @Injectable()
 export class AplicacaoService {
-  API_URL: string = "http://localhost:9092";
+  API_URL: String = 'http://localhost:9092';
 
   constructor(private http: HttpClient) { }
 

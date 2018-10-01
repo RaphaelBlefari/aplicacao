@@ -8,14 +8,14 @@ import { AplicacaoService } from './aplicacao.service';
 })
 export class AppComponent {
   title = 'app';
-  respostaAPI = "";
+  respostaAPI = '';
 
   constructor(private aplicacaoService: AplicacaoService) { }
 
   buscarAPI() {
     this.aplicacaoService.BuscaAPI().subscribe(res => {
       this.respostaAPI = res.Mensagem;
-    })
+    });
   }
 }
 

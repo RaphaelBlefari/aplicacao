@@ -1,4 +1,4 @@
 class MensagemAPI {
-    public Mensagem: string
+    public Mensagem: string;
 }
-export { MensagemAPI }
+export { MensagemAPI };
