@@ -26,28 +26,28 @@ node {
 
     stage('NPM Install') {
 
-            sh 'npm install'
+            cmd 'npm install'
         
     }
 
     stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          sh 'ng test --progress=false --watch false'
+          cmd 'ng test --progress=false --watch false'
         }
         junit '**/test-results.xml'
     }
 
     stage('Lint') {
-        sh 'ng lint'
+        cmd 'ng lint'
     }
 
     stage('Build') {
         milestone()
-        sh 'ng build --prod --aot --sm --progress=false'
+        cmd 'ng build --prod --aot --sm --progress=false'
     }
 
     stage('Archive') {
-        sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+        cmd 'tar -cvzf dist.tar.gz --strip-components=1 dist'
         archive 'dist.tar.gz'
     }
 
