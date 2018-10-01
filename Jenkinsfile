@@ -32,22 +32,22 @@ node {
 
     stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          cmd 'ng test --progress=false --watch false'
+          'ng test --progress=false --watch false'
         }
         junit '**/test-results.xml'
     }
 
     stage('Lint') {
-        cmd 'ng lint'
+        'ng lint'
     }
 
     stage('Build') {
         milestone()
-        cmd 'ng build --prod --aot --sm --progress=false'
+         'ng build --prod --aot --sm --progress=false'
     }
 
     stage('Archive') {
-        cmd 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+         'tar -cvzf dist.tar.gz --strip-components=1 dist'
         archive 'dist.tar.gz'
     }
 
