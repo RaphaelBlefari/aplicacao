@@ -19,35 +19,35 @@ node {
         checkout scm
 
         //enable for commit id in build number
-        //env.git_commit_id = sh returnStdout: true, script: 'git rev-parse HEAD'
+        //env.git_commit_id = bat returnStdout: true, script: 'git rev-parse HEAD'
         //env.git_commit_id_short = env.git_commit_id.take(7)
         //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
     }
 
     stage('NPM Install') {
 
-            cmd 'npm install'
+            bat 'npm install'
         
     }
 
     stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          'ng test --progress=false --watch false'
+          bat 'ng test --progress=false --watch false'
         }
         junit '**/test-results.xml'
     }
 
     stage('Lint') {
-        'ng lint'
+        bat 'ng lint'
     }
 
     stage('Build') {
         milestone()
-         'ng build --prod --aot --sm --progress=false'
+        bat 'ng build --prod --aot --sm --progress=false'
     }
 
     stage('Archive') {
-         'tar -cvzf dist.tar.gz --strip-components=1 dist'
+        bat 'tar -cvzf dist.tar.gz --strip-components=1 dist'
         archive 'dist.tar.gz'
     }
 
