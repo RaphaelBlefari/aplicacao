@@ -30,12 +30,12 @@ node {
         
     }
 
-    stage('Test') {
-        withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          bat 'npm run  ng test --progress=false --watch false'
-        }
-        junit '**/test-results.xml'
-    }
+    // stage('Test') {
+    //     withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
+    //       bat 'npm run  ng test --progress=false --watch false'
+    //     }
+    //     junit '**/test-results.xml'
+    // }
 
     stage('Lint') {
         bat 'npm run  ng lint'
