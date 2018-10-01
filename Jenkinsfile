@@ -32,23 +32,18 @@ node {
 
     stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          bat 'ng test --progress=false --watch false'
+          bat 'npm run  ng test --progress=false --watch false'
         }
         junit '**/test-results.xml'
     }
 
     stage('Lint') {
-        bat 'ng lint'
+        bat 'npm run  ng lint'
     }
 
     stage('Build') {
         milestone()
-        bat 'ng build --prod --aot --sm --progress=false'
-    }
-
-    stage('Archive') {
-        bat 'tar -cvzf dist.tar.gz --strip-components=1 dist'
-        archive 'dist.tar.gz'
+        bat 'npm run ng build --prod --aot --sm --progress=false'
     }
 
     stage('Deploy') {
