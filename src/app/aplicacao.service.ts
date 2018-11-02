@@ -9,7 +9,7 @@ export class AplicacaoService {
 
   constructor(private http: HttpClient) { }
 
-  BuscaAPI() : Observable<MensagemAPI> {
+  BuscaAPI(): Observable<MensagemAPI> {
     return this.http.get<MensagemAPI>(`${API_URL}/busca`);
   }
 }
