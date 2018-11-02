@@ -50,4 +50,8 @@ node {
         milestone()
         echo "Deploying..."
     }
+
+        stage('Hora Gerada') {
+         bat 'date'
+    }
 }
